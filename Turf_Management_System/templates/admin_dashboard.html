@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard | Turf Management{% endblock %}
+{% block content %}
+<section class="page-section admin-page">
+  <div class="admin-welcome" data-reveal><div><span class="eyebrow eyebrow-light">TURF MANAGEMENT · ADMIN</span><h1>Operations overview</h1><p>Manage your players and keep bookings on track.</p></div><a class="button button-glass" href="{{ url_for('admin_logout') }}">Log out <span aria-hidden="true">↗</span></a></div>
+  <div class="stats-grid">
+    <article class="stat-card" data-reveal><span class="stat-icon stat-green" aria-hidden="true">♙</span><span class="stat-label">Total users</span><strong>{{ stats.total_users }}</strong><span class="stat-footnote">Registered players</span></article>
+    <article class="stat-card" data-reveal><span class="stat-icon stat-orange" aria-hidden="true">⚽</span><span class="stat-label">Total turfs</span><strong>3</strong><span class="stat-footnote">Configured facility types</span></article>
+    <article class="stat-card" data-reveal><span class="stat-icon stat-blue" aria-hidden="true">▦</span><span class="stat-label">Total bookings</span><strong>{{ stats.total_bookings }}</strong><span class="stat-footnote">All-time reservations</span></article>
+    <article class="stat-card" data-reveal><span class="stat-icon stat-purple" aria-hidden="true">◷</span><span class="stat-label">Today's bookings</span><strong>{{ stats.todays_bookings }}</strong><span class="stat-footnote">Bookings for today</span></article>
+  </div>
+  <div class="admin-section-heading"><div><span class="eyebrow">CONTROL CENTER</span><h2>Management tools</h2></div><span class="availability-chip"><span></span>{{ stats.available_slots }} available slots today*</span></div>
+  <div class="admin-tools-grid">
+    <a class="admin-tool-card" href="{{ url_for('admin_users') }}" data-reveal><span class="admin-tool-icon">♙</span><div><h3>Manage Users</h3><p>Review player profiles and account details.</p></div><span class="admin-tool-arrow" aria-hidden="true">↗</span></a>
+    <a class="admin-tool-card" href="{{ url_for('admin_bookings') }}" data-reveal><span class="admin-tool-icon admin-tool-orange">▦</span><div><h3>Manage Bookings</h3><p>Search, filter, update or remove reservations.</p></div><span class="admin-tool-arrow" aria-hidden="true">↗</span></a>
+    <article class="admin-tool-card tool-unavailable" data-reveal><span class="admin-tool-icon admin-tool-blue">⚽</span><div><h3>Manage Turfs</h3><p>The current app uses a fixed facility list; no turf editor route is available.</p><span class="coming-soon-label">Not available in this backend</span></div></article>
+    <article class="admin-tool-card tool-unavailable" data-reveal><span class="admin-tool-icon admin-tool-purple">◷</span><div><h3>Update Turf Availability</h3><p>Availability is checked against existing bookings; there is no separate schedule editor.</p><span class="coming-soon-label">Not available in this backend</span></div></article>
+  </div>
+  <p class="admin-footnote">* Available slots are calculated by the existing application logic for today.</p>
+</section>
+{% endblock %}

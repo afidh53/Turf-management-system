@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Book {{ turf.name }} | Turf Management{% endblock %}
+{% block content %}
+<section class="booking-page page-section">
+  <div class="page-heading" data-reveal><a class="back-link" href="{{ url_for('index') }}#turfs">← All turfs</a><span class="eyebrow">MAKE IT A MATCH DAY</span><h1>Reserve your spot</h1><p>Choose a date and a playing slot for your next game.</p></div>
+  <div class="booking-layout">
+    <article class="booking-facility-card" data-reveal>
+      <div class="booking-image-wrap"><img src="{% if 'Football' in turf.name %}https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% elif 'Cricket' in turf.name %}https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% else %}https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% endif %}" onerror="this.onerror=null;this.src='{% if 'Football' in turf.name %}{{ url_for('static', filename='images/football.svg') }}{% elif 'Cricket' in turf.name %}{{ url_for('static', filename='images/cricket.svg') }}{% else %}{{ url_for('static', filename='images/badminton.svg') }}{% endif %}'" alt="{{ turf.name }}">
+      <div class="booking-facility-copy"><span class="eyebrow">YOUR SELECTED FACILITY</span><h2>{{ turf.name }}</h2><p>{{ turf.description }}</p><div class="facility-price"><span>Price per hour</span><strong>${{ turf.price }}<small> / hour</small></strong></div><div class="facility-note"><span aria-hidden="true">ⓘ</span> Location details are not listed in the current facility data.</div></div>
+    </article>
+    <section class="booking-form-card" aria-labelledby="booking-form-title" data-reveal>
+      <div class="booking-form-heading"><span class="booking-step">01</span><div><h2 id="booking-form-title">Booking details</h2><p>Pick the date and time that suit your team.</p></div></div>
+      <form method="post" class="form-stack" data-booking-form data-validate-form>
+        <label class="form-field"><span>Booking date</span><input type="date" name="booking_date" min="" value="{{ request.form.get('booking_date', request.args.get('date', '')) }}" required data-min-date></label>
+        <fieldset class="slot-fieldset"><legend>Available time slots</legend><p class="field-hint">Select one of the listed one-hour slots.</p><div class="slot-grid">
+          {% for slot in time_slots %}<button class="slot-button{% if request.form.get('time_slot', request.args.get('time', '')) == slot %} is-selected{% endif %}" type="button" data-time-slot="{{ slot }}" aria-pressed="{% if request.form.get('time_slot', request.args.get('time', '')) == slot %}true{% else %}false{% endif %}"><span class="slot-dot"></span>{{ slot }}</button>{% endfor %}
+        </div><input type="hidden" name="time_slot" value="{{ request.form.get('time_slot', request.args.get('time', '')) }}" data-selected-slot></fieldset>
+        <div class="account-summary"><span class="account-avatar" aria-hidden="true">{{ session.get('user_name', 'P')[:1]|upper }}</span><div><span>Booking for</span><strong>{{ session.get('user_name', 'Your account') }}</strong></div><span class="account-verified" aria-label="Signed in">✓</span></div>
+        <p class="form-feedback" data-booking-feedback aria-live="polite"></p>
+        <button class="button button-primary button-full" type="submit">Confirm Booking <span aria-hidden="true">→</span></button>
+        <p class="secure-note"><span aria-hidden="true">◈</span> Your booking is checked against existing reservations when submitted.</p>
+      </form>
+    </section>
+  </div>
+</section>
+{% endblock %}

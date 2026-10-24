@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}Manage Users | Turf Management{% endblock %}
+{% block content %}
+<section class="page-section records-page"><div class="dashboard-welcome" data-reveal><div><a class="back-link" href="{{ url_for('admin_dashboard') }}">← Admin dashboard</a><span class="eyebrow">ADMINISTRATION</span><h1>Manage Users</h1><p>Review registered player accounts.</p></div><span class="result-count">{{ users|length }} users</span></div>
+  <div class="table-card" data-reveal><div class="table-card-heading"><div><h2>Player directory</h2><p>User records currently registered in the system.</p></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>User</th><th>Email</th><th>Phone</th><th>Action</th></tr></thead><tbody>
+  {% for u in users %}<tr><td><div class="user-cell"><span class="user-avatar">{{ u.name[:1]|upper }}</span><span><strong>{{ u.name }}</strong><small>Player #{{ u.id }}</small></span></div></td><td>{{ u.email }}</td><td>{{ u.phone or '—' }}</td><td><a class="table-action table-action-danger" href="{{ url_for('admin_delete_user', user_id=u.id) }}">Delete user</a></td></tr>
+  {% else %}<tr><td class="empty-cell" colspan="4"><span class="empty-icon" aria-hidden="true">♙</span><strong>No users yet</strong><span>Registered accounts will appear here.</span></td></tr>{% endfor %}
+  </tbody></table></div></div>
+</section>
+{% endblock %}

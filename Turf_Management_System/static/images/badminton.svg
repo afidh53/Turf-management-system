@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title">
+  <title id="title">Indoor badminton court ready for play</title>
+  <defs>
+    <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#d6e4dc"/><stop offset="1" stop-color="#96b4a4"/></linearGradient>
+    <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#55a786"/><stop offset="1" stop-color="#17684f"/></linearGradient>
+    <linearGradient id="light" x2="0" y2="1"><stop stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#wall)"/>
+  <path d="M0 0h1200v87H0Z" fill="#f4f3e8"/>
+  <path d="M0 100h1200v240H0Z" fill="#b7d0c4"/>
+  <path d="M70 110v215m212-215v215m212-215v215m212-215v215m212-215v215m212-215v215" stroke="#edf3eb" stroke-opacity=".66" stroke-width="8"/>
+  <path d="M110 120h980M110 190h980M110 260h980" stroke="#8eaa9a" stroke-opacity=".55" stroke-width="3"/>
+  <path d="M0 340h1200v360H0Z" fill="url(#floor)"/>
+  <path d="M0 340h1200v360H0Z" fill="url(#light)"/>
+  <path d="m163 370 874 0-67 292H230Z" fill="#277d61" stroke="#eaf3e8" stroke-width="5"/>
+  <path d="m242 370-32 292m748-292 32 292M187 516h826M600 370v292" fill="none" stroke="#edf4e7" stroke-width="4"/>
+  <path d="M418 370v292m364-292v292" fill="none" stroke="#edf4e7" stroke-opacity=".84" stroke-width="3"/>
+  <path d="M150 364h900" stroke="#e8efdc" stroke-width="8"/>
+  <path d="M150 364h900" stroke="#718b7f" stroke-width="2" stroke-dasharray="5 5"/>
+  <path d="M150 354v22m900-22v22" stroke="#dce9dd" stroke-width="6"/>
+  <path d="M150 361h900" stroke="#fff" stroke-opacity=".8" stroke-width="2" stroke-dasharray="6 8"/>
+  <g transform="translate(790 450) rotate(16)"><path d="M0 0q35-26 69 0l-8 38H8Z" fill="#fff"/><path d="M8 38h53l-8 15H15Z" fill="#e9eee6"/><path d="M16 4 25 33m10-36 5 38m16-31-4 30" stroke="#9aa99f" stroke-width="3"/></g>
+  <rect width="1200" height="700" fill="#102f21" opacity=".05"/>
+</svg>

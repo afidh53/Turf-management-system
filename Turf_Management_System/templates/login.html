@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Login | Turf Management{% endblock %}
+{% block content %}
+<section class="auth-layout">
+  <div class="auth-aside auth-aside-login"><span class="eyebrow eyebrow-light">WELCOME BACK</span><h1>Your next game<br>is waiting.</h1><p>Sign in to book a facility and keep your matches organised.</p><div class="auth-aside-decoration" aria-hidden="true">⚽</div></div>
+  <div class="auth-panel">
+    <div class="auth-card">
+      <a class="brand auth-brand" href="{{ url_for('index') }}"><span class="brand-mark" aria-hidden="true">⚽</span><span class="brand-copy">Turf<span>Management</span></span></a>
+      <span class="eyebrow">YOUR PLAYER ACCOUNT</span><h2>Welcome back</h2><p class="auth-intro">Enter your account details to continue.</p>
+      <form method="post" class="form-stack" data-validate-form>
+        <label class="form-field"><span>Email address</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+        <label class="form-field"><span>Password</span><input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+        <div class="form-options"><span class="muted-copy">Forgot password? Contact your administrator for help.</span></div>
+        <button class="button button-primary button-full" type="submit">Login to your account <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="auth-switch">New to Turf Management? <a href="{{ url_for('register') }}">Create an account</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Admin Login | Turf Management{% endblock %}
+{% block content %}
+<section class="auth-layout auth-layout-admin">
+  <div class="auth-aside auth-aside-admin"><span class="eyebrow eyebrow-light">ADMINISTRATION</span><h1>Keep the<br>game running.</h1><p>Sign in to manage player accounts and booking activity.</p><div class="auth-aside-decoration" aria-hidden="true">◈</div></div>
+  <div class="auth-panel"><div class="auth-card">
+    <a class="brand auth-brand" href="{{ url_for('index') }}"><span class="brand-mark" aria-hidden="true">⚽</span><span class="brand-copy">Turf<span>Management</span></span></a>
+    <span class="eyebrow">ADMIN PORTAL</span><h2>Admin login</h2><p class="auth-intro">Use your administrator credentials to continue.</p>
+    <form method="post" class="form-stack" data-validate-form>
+      <label class="form-field"><span>Username</span><input name="username" autocomplete="username" placeholder="Admin username" required></label>
+      <label class="form-field"><span>Password</span><input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required></label>
+      <button class="button button-primary button-full" type="submit">Sign in to admin <span aria-hidden="true">→</span></button>
+    </form>
+    <p class="auth-switch"><a href="{{ url_for('index') }}">← Return to the website</a></p>
+  </div></div>
+</section>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Create an Account | Turf Management{% endblock %}
+{% block content %}
+<section class="auth-layout auth-layout-register">
+  <div class="auth-aside auth-aside-register"><span class="eyebrow eyebrow-light">JOIN THE GAME</span><h1>Great games<br>start here.</h1><p>Create your account to find a turf and manage your bookings with ease.</p><div class="auth-aside-decoration" aria-hidden="true">🏏</div></div>
+  <div class="auth-panel">
+    <div class="auth-card">
+      <a class="brand auth-brand" href="{{ url_for('index') }}"><span class="brand-mark" aria-hidden="true">⚽</span><span class="brand-copy">Turf<span>Management</span></span></a>
+      <span class="eyebrow">PLAYER REGISTRATION</span><h2>Create your account</h2><p class="auth-intro">A few details and you’ll be ready to play.</p>
+      <form method="post" class="form-stack" data-validate-form data-password-form>
+        <label class="form-field"><span>Full name</span><input name="name" autocomplete="name" placeholder="Your full name" required></label>
+        <div class="form-row">
+          <label class="form-field"><span>Email address</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label class="form-field"><span>Phone number</span><input type="tel" name="phone" autocomplete="tel" placeholder="Your phone number" required></label>
+        </div>
+        <div class="form-row">
+          <label class="form-field"><span>Password</span><input type="password" name="password" autocomplete="new-password" placeholder="Create a password" required></label>
+          <label class="form-field"><span>Confirm password</span><input type="password" name="confirm" autocomplete="new-password" placeholder="Enter it again" required></label>
+        </div>
+        <p class="form-feedback" data-password-feedback aria-live="polite"></p>
+        <button class="button button-primary button-full" type="submit">Create account <span aria-hidden="true">→</span></button>
+      </form>
+      <p class="auth-switch">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

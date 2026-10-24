@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Player Dashboard | Turf Management{% endblock %}
+{% block content %}
+<section class="page-section dashboard-page">
+  <div class="dashboard-welcome" data-reveal><div><span class="eyebrow">PLAYER DASHBOARD</span><h1>Good to see you, {{ session.get('user_name') }}.</h1><p>Pick a facility and get your next game on the calendar.</p></div><a class="button button-outline" href="{{ url_for('my_bookings') }}">View my bookings <span aria-hidden="true">→</span></a></div>
+  <div class="dashboard-section-heading"><div><span class="eyebrow">FIND YOUR GAME</span><h2>Choose a turf to book</h2></div><span class="result-count">{{ turfs|length }} facilities</span></div>
+  <div class="turf-grid dashboard-turf-grid">
+    {% for turf in turfs %}
+    <article class="turf-card" data-reveal>
+      <a class="turf-image-link" href="{{ url_for('booking', turf_name=turf.name) }}" aria-label="Book {{ turf.name }}"><img class="turf-image" src="{% if 'Football' in turf.name %}https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% elif 'Cricket' in turf.name %}https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% else %}https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% endif %}" onerror="this.onerror=null;this.src='{% if 'Football' in turf.name %}{{ url_for('static', filename='images/football.svg') }}{% elif 'Cricket' in turf.name %}{{ url_for('static', filename='images/cricket.svg') }}{% else %}{{ url_for('static', filename='images/badminton.svg') }}{% endif %}'" alt="{{ turf.name }}" loading="lazy"><span class="turf-image-tag">{{ '%02d'|format(loop.index) }} / {{ '%02d'|format(turfs|length) }}</span><span class="image-arrow" aria-hidden="true">↗</span></a>
+      <div class="turf-card-content"><div class="turf-card-title"><h3>{{ turf.name }}</h3><span class="sport-indicator" aria-hidden="true">{% if 'Football' in turf.name %}⚽{% elif 'Cricket' in turf.name %}🏏{% else %}🏸{% endif %}</span></div><p>{{ turf.description }}</p><div class="turf-card-meta"><span>Hourly booking</span><span class="turf-price">${{ turf.price }} <small>/ hour</small></span></div><a class="text-link" href="{{ url_for('booking', turf_name=turf.name) }}">Book this turf <span aria-hidden="true">→</span></a></div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

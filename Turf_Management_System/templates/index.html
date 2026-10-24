@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block title %}Book Your Turf. Play Your Game. | Turf Management{% endblock %}
+{% block content %}
+<section class="hero" style="--hero-image: url('{{ url_for('static', filename='images/football.svg') }}')">
+  <div class="hero-inner">
+    <div class="hero-copy" data-reveal>
+      <span class="eyebrow eyebrow-light"><span class="eyebrow-dot"></span> Easy Online Turf Booking</span>
+      <h1>Book Your Turf.<br><span>Play Your Game.</span></h1>
+      <p>Find and book your favourite sports turf quickly, easily and securely.</p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="{{ url_for('register') }}">Book Now <span aria-hidden="true">↗</span></a>
+        <a class="button button-glass" href="#turfs">Explore Turfs <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-trust"><span class="trust-icon" aria-hidden="true">✓</span> Your next game is just a few clicks away</div>
+    </div>
+    <div class="hero-side-note" aria-hidden="true"><span>01</span><span class="side-line"></span><span>FIND YOUR GAME</span></div>
+  </div>
+  <a class="hero-scroll" href="#booking-search"><span></span> Scroll to explore</a>
+</section>
+
+<section class="booking-search-section" id="booking-search" aria-labelledby="search-title">
+  <form class="booking-search" data-availability-search>
+    <div class="search-heading"><span class="search-icon" aria-hidden="true">⌕</span><div><h2 id="search-title">Find your playing time</h2><p>Choose a sport, date and time to get started.</p></div></div>
+    <label class="search-field"><span>Sport</span><select name="sport" required>
+      <option value="" selected disabled>Select a sport</option>
+      {% for turf in turfs %}<option value="{{ turf.name }}">{{ turf.name }}</option>{% endfor %}
+    </select></label>
+    <label class="search-field"><span>Date</span><input type="date" name="booking_date" required data-min-date></label>
+    <label class="search-field"><span>Time</span><select name="time_slot" required>
+      <option value="" selected disabled>Select a time</option>
+      <option>6 AM - 7 AM</option><option>7 AM - 8 AM</option><option>8 AM - 9 AM</option>
+      <option>4 PM - 5 PM</option><option>5 PM - 6 PM</option><option>6 PM - 7 PM</option><option>7 PM - 8 PM</option>
+    </select></label>
+    <button class="button button-primary search-submit" type="submit">Search Availability <span aria-hidden="true">→</span></button>
+    <p class="search-hint" data-search-hint>Choose a turf to continue. Slot availability is confirmed when you submit your booking.</p>
+  </form>
+</section>
+
+<section class="section section-turfs" id="turfs">
+  <div class="section-heading" data-reveal>
+    <div><span class="eyebrow">MAKE IT A MATCH DAY</span><h2 id="turf-heading">Choose Your Sport</h2></div>
+    <p>Book premium sports facilities at your preferred time.</p>
+  </div>
+  <div class="turf-grid">
+    {% for turf in turfs %}
+    <article class="turf-card" data-turf-name="{{ turf.name }}" data-booking-url="{{ url_for('booking', turf_name=turf.name) }}" data-reveal>
+      <a class="turf-image-link" href="{{ url_for('booking', turf_name=turf.name) }}" aria-label="View booking for {{ turf.name }}">
+        <img class="turf-image" src="{% if 'Football' in turf.name %}https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% elif 'Cricket' in turf.name %}https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% else %}https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?auto=format&amp;fit=crop&amp;w=1600&amp;q=85{% endif %}" onerror="this.onerror=null;this.src='{% if 'Football' in turf.name %}{{ url_for('static', filename='images/football.svg') }}{% elif 'Cricket' in turf.name %}{{ url_for('static', filename='images/cricket.svg') }}{% else %}{{ url_for('static', filename='images/badminton.svg') }}{% endif %}'" alt="{{ turf.name }}" loading="lazy">
+        <span class="turf-image-tag">{{ '%02d'|format(loop.index) }} / 03</span>
+        <span class="image-arrow" aria-hidden="true">↗</span>
+      </a>
+      <div class="turf-card-content">
+        <div class="turf-card-title"><h3>{{ turf.name }}</h3><span class="sport-indicator" aria-hidden="true">{% if 'Football' in turf.name %}⚽{% elif 'Cricket' in turf.name %}🏏{% else %}🏸{% endif %}</span></div>
+        <p>{{ turf.description }}</p>
+        <div class="turf-card-meta"><span>Hourly booking</span><span class="turf-price">${{ turf.price }} <small>/ hour</small></span></div>
+        <a class="text-link" href="{{ url_for('booking', turf_name=turf.name) }}">Book this turf <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section features-section">
+  <div class="section-heading section-heading-centered" data-reveal><div><span class="eyebrow">MORE GAME. LESS HASSLE.</span><h2>Why Choose Turf Management?</h2></div><p>Everything you need to get your team on the field.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true">↗</span><h3>Easy Online Booking</h3><p>Reserve your favourite sport and get your plans in motion in just a few steps.</p></article>
+    <article class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true">◷</span><h3>Availability Checking</h3><p>Choose from the listed playing slots and confirm your booking request online.</p></article>
+    <article class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true">◈</span><h3>Secure Booking</h3><p>Your account keeps your reservations connected to you and easy to manage.</p></article>
+    <article class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true">✓</span><h3>Booking Confirmation</h3><p>See your booking status in your account after your reservation is submitted.</p></article>
+  </div>
+</section>
+
+<section class="steps-section">
+  <div class="section section-steps">
+    <div class="section-heading section-heading-centered" data-reveal><div><span class="eyebrow eyebrow-light">THREE STEPS TO GAME TIME</span><h2>How It Works</h2></div><p>Booking your next match is simple.</p></div>
+    <div class="steps-grid">
+      <article class="step-card" data-reveal><span class="step-number">01</span><span class="step-icon" aria-hidden="true">⌕</span><h3>Choose Your Turf</h3><p>Pick the sport and facility that fits your game.</p></article>
+      <span class="step-connector" aria-hidden="true">········→</span>
+      <article class="step-card" data-reveal><span class="step-number">02</span><span class="step-icon" aria-hidden="true">▦</span><h3>Select Date &amp; Time</h3><p>Find a listed slot that works for your team.</p></article>
+      <span class="step-connector" aria-hidden="true">········→</span>
+      <article class="step-card" data-reveal><span class="step-number">03</span><span class="step-icon" aria-hidden="true">✓</span><h3>Confirm Your Booking</h3><p>Submit your reservation and manage it online.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section about-section" id="about">
+  <div class="about-visual" data-reveal><div class="about-art"><span class="about-art-ball" aria-hidden="true">⚽</span><span class="about-art-caption">YOUR GAME<br>STARTS HERE</span><span class="about-art-lines"></span></div><div class="about-stamp"><strong>PLAY</strong><span>YOUR WAY</span></div></div>
+  <div class="about-copy" data-reveal><span class="eyebrow">ABOUT THE PLATFORM</span><h2>About Turf Management System</h2><p>We make sports turf booking simple, fast and convenient. Find a facility, choose a date and time, then keep track of your reservation from one friendly place.</p><ul class="check-list"><li><span>✓</span> Online booking and availability checking</li><li><span>✓</span> Personal booking management</li><li><span>✓</span> A clear, user-friendly experience</li><li><span>✓</span> Admin tools for users and bookings</li></ul><a class="text-link" href="{{ url_for('register') }}">Get started today <span aria-hidden="true">→</span></a></div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-content" data-reveal><span class="eyebrow eyebrow-light">THE FIELD IS CALLING</span><h2>Ready to Play?</h2><p>Book your favourite turf today and enjoy a hassle-free sports experience.</p><a class="button button-accent" href="#turfs">Book Your Turf <span aria-hidden="true">↗</span></a></div>
+  <span class="cta-ball" aria-hidden="true">⚽</span>
+</section>
+{% endblock %}

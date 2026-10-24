@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title">
+  <title id="title">Floodlit football pitch at dusk</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#183b36"/><stop offset=".48" stop-color="#567b59"/><stop offset="1" stop-color="#9bbf75"/></linearGradient>
+    <linearGradient id="grass" x2="0" y2="1"><stop stop-color="#64a857"/><stop offset="1" stop-color="#21633d"/></linearGradient>
+    <linearGradient id="glow" x2="0" y2="1"><stop stop-color="#fff9c6" stop-opacity=".8"/><stop offset="1" stop-color="#fff9c6" stop-opacity="0"/></linearGradient>
+    <pattern id="stripes" width="200" height="200" patternUnits="userSpaceOnUse" patternTransform="skewX(-18)"><rect width="100" height="200" fill="#a5d379" opacity=".12"/></pattern>
+    <radialGradient id="ball"><stop stop-color="#fff"/><stop offset="1" stop-color="#e2e9db"/></radialGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#sky)"/>
+  <circle cx="905" cy="112" r="145" fill="#f8dfa1" opacity=".15"/>
+  <path d="M0 305 155 230l120 44 118-91 160 93 122-69 115 73 133-93 277 103v114H0Z" fill="#1c493b" opacity=".82"/>
+  <path d="M0 370 162 318l139 32 132-69 132 65 155-48 149 55 144-52 187 49v86H0Z" fill="#315c43"/>
+  <path d="M0 420h1200v280H0Z" fill="url(#grass)"/>
+  <path d="M0 420h1200v280H0Z" fill="url(#stripes)"/>
+  <path d="M0 471h1200M0 615h1200" fill="none" stroke="#e6f3d8" stroke-opacity=".78" stroke-width="4"/>
+  <path d="M72 442v216h1056V442M600 442v216" fill="none" stroke="#e6f3d8" stroke-opacity=".72" stroke-width="4"/>
+  <ellipse cx="600" cy="550" rx="115" ry="67" fill="none" stroke="#e6f3d8" stroke-opacity=".72" stroke-width="4"/>
+  <circle cx="600" cy="550" r="6" fill="#fff"/>
+  <path d="M170 482h126v117H170m860-117H904v117h126" fill="none" stroke="#e6f3d8" stroke-opacity=".72" stroke-width="4"/>
+  <path d="M92 241v190M1108 241v190" stroke="#d9e4cf" stroke-opacity=".66" stroke-width="8"/>
+  <path d="M56 240h72m948 0h72" stroke="#d9e4cf" stroke-width="12" stroke-linecap="round"/>
+  <path d="M63 250h58M1079 250h58" stroke="#fff9c6" stroke-width="17" stroke-linecap="round"/>
+  <path d="M92 260 20 456h146L92 260m1016 0-74 196h146l-72-196" fill="url(#glow)" opacity=".38"/>
+  <g transform="translate(880 560) rotate(-18)"><circle r="42" fill="url(#ball)"/><path d="m0-17 16 12-6 19h-20l-6-19Zm-16 12-17-5m43 5 17-5M-10 14l-8 18m28-18 8 18" fill="#24382c" stroke="#24382c" stroke-width="7" stroke-linejoin="round"/><circle r="42" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2"/></g>
+  <rect width="1200" height="700" fill="#0e281d" opacity=".08"/>
+</svg>

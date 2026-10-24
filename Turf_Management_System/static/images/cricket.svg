@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title">
+  <title id="title">Cricket ground with a central pitch</title>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#73b4c6"/><stop offset=".64" stop-color="#d7df9c"/><stop offset="1" stop-color="#f4d991"/></linearGradient>
+    <linearGradient id="field" x2="0" y2="1"><stop stop-color="#72ad59"/><stop offset="1" stop-color="#317342"/></linearGradient>
+    <linearGradient id="pitch" x2="0" y2="1"><stop stop-color="#dcbf82"/><stop offset="1" stop-color="#b98b55"/></linearGradient>
+    <pattern id="grass" width="180" height="180" patternUnits="userSpaceOnUse" patternTransform="rotate(-12)"><rect width="90" height="180" fill="#bce37d" opacity=".12"/></pattern>
+  </defs>
+  <rect width="1200" height="700" fill="url(#sky)"/>
+  <circle cx="970" cy="120" r="66" fill="#fff1b6" opacity=".9"/>
+  <path d="M0 345q200-84 400 0t400 0 400 0v355H0Z" fill="#387149"/>
+  <ellipse cx="600" cy="540" rx="548" ry="239" fill="url(#field)"/>
+  <ellipse cx="600" cy="540" rx="548" ry="239" fill="url(#grass)"/>
+  <ellipse cx="600" cy="540" rx="475" ry="193" fill="none" stroke="#d8edb8" stroke-opacity=".72" stroke-width="4"/>
+  <path d="M520 409h160l31 248H489Z" fill="url(#pitch)" stroke="#f3deac" stroke-width="4"/>
+  <path d="M526 433h148m-161 197h174" stroke="#fff2ce" stroke-width="5"/>
+  <path d="M553 423v23m47-23v23m47-23v23m-92 177v28m45-28v28m47-28v28" stroke="#f7edcf" stroke-width="6" stroke-linecap="round"/>
+  <path d="M565 438v22m35-22v22m35-22v22m-70 170v22m35-22v22m35-22v22" stroke="#8c5738" stroke-width="5" stroke-linecap="round"/>
+  <path d="M122 342v-90m956 90v-90M101 252h42m935 0h42" stroke="#e9efe0" stroke-width="8" stroke-linecap="round"/>
+  <path d="M150 359q450-96 900 0" fill="none" stroke="#f1e6bd" stroke-opacity=".7" stroke-width="3"/>
+  <g transform="translate(840 495)"><circle r="31" fill="#fff"/><path d="M0-11 10-4 6 8H-6l-4-12Zm-10 7-12-4m32 4 12-4M-6 8l-5 12m17-12 5 12" fill="#c9533d" stroke="#c9533d" stroke-width="5" stroke-linejoin="round"/></g>
+  <rect width="1200" height="700" fill="#163d28" opacity=".08"/>
+</svg>
